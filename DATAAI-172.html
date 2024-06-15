@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Login Page</title>
+    <!-- Ensure you include Modus Web Components CSS and JS here -->
+</head>
+<body>
+
+    <!-- Navigation Bar with App Logo -->
+    <modus-navbar>
+        <!-- Your logo here -->
+    </modus-navbar>
+
+    <div style="padding: 20px;">
+        <!-- Login Form -->
+        <form id="loginForm">
+            <!-- Email Input -->
+            <modus-text-input id="emailInput" label="Email" placeholder="Enter your email"></modus-text-input>
+            
+            <!-- Password Input with Visibility Toggle -->
+            <modus-text-input id="passwordInput" type="password" label="Password" placeholder="Enter your password">
+                <!-- Assuming modus-icon can be used here for toggle visibility -->
+                <modus-icon slot="suffix" name="visibility" id="togglePasswordVisibility"></modus-icon>
+            </modus-text-input>
+            
+            <!-- Login Button -->
+            <modus-button id="loginButton" type="submit">Log In</modus-button>
+        </form>
+
+        <!-- Links for Account Recovery and Registration -->
+        <div style="margin-top: 20px; text-align: center;">
+            <a href="#forgot-password">Forgot Password?</a>
+            <modus-button onclick="location.href='#sign-up'">Sign Up</modus-button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for toggling password visibility
+        document.getElementById('togglePasswordVisibility').addEventListener('click', function() {
+            const passwordInput = document.getElementById('passwordInput');
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            // Update the icon based on visibility state
+            // This assumes you have a way to change the icon, pseudo code below
+            // this.name = type === 'password' ? 'visibility' : 'visibility_off';
+        });
+
+        // JavaScript for handling form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Implement your login logic here
+            // Display modus-alert based on success or failure
+        });
+    </script>
+
+</body>
+</html>
